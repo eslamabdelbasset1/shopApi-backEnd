@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Models
 {
-    public class Customer
+    public class 
+        Customer
     {
         public int CustomerNumber { get; set; }
         public string CustomerName { get; set; }
