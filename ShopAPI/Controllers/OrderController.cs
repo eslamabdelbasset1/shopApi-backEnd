@@ -32,8 +32,6 @@ namespace ShopAPI.Controllers
         }
 
 
-
-
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         public Order Get(int id)
