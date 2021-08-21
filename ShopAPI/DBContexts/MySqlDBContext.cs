@@ -12,6 +12,8 @@ namespace ShopAPI.DBContexts
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderDetail> Orderdetails { get; set; }
+
         public MySqlDBContext(DbContextOptions<MySqlDBContext> options) : base(options)
         {
         }
@@ -37,7 +39,12 @@ namespace ShopAPI.DBContexts
 
 
 
+            // Map entities to tables (OrdersDetails)
+            modelBuilder.Entity<OrderDetail>().ToTable("orderdetails");
 
+
+            // Configure Primary Keys  
+            modelBuilder.Entity<OrderDetail>().HasKey(ug => ug.OrderNumber).HasName("orderNumber");
         }
     }
 }   

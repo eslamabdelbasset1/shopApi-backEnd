@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Models
 {
-    public class 
-        Customer
+    public class Customer
     {
         public int CustomerNumber { get; set; }
         public string CustomerName { get; set; }
@@ -20,7 +19,5 @@ namespace ShopAPI.Models
         public string PostalCode { get; set; }
         public string Country { get; set; }
         public float CreditLimit { get; set; }
-
-
     }
 }
