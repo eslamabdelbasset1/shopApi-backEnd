@@ -6,36 +6,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
- 
 namespace ShopAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-
 
     public class CustomerController : ControllerBase
     {
         private MySqlDBContext mySqlDbContext;
 
-        
         public CustomerController(MySqlDBContext context)
         {
             this.mySqlDbContext = context;
         }
 
-        // GET: api/<cust>
+        // GET: <cust>
         [HttpGet]
         public IEnumerable<Customer> Get()    
         {
-  
             return this.mySqlDbContext.Customers.ToList();
-
         }
 
-
-
-
-        // GET api/<CustomerController>/5
+        // GET: <CustomerController>/5
         [HttpGet("{id}")]
         public Customer Get(int id)
         {
@@ -44,19 +36,19 @@ namespace ShopAPI.Controllers
             return this.mySqlDbContext.Customers.Find(id);
         }
 
-        // POST api/<Controller>
+        // POST <Controller>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<CustomerController>/5
+        // PUT <CustomerController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<CustomerController>/5
+        // DELETE <CustomerController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

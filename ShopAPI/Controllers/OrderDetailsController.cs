@@ -8,57 +8,42 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Controllers
 {
-
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-
 
     public class OrderDetailsController : ControllerBase
     {
         private MySqlDBContext mySqlDbContext;
-
 
         public OrderDetailsController(MySqlDBContext context)
         {
             this.mySqlDbContext = context;
         }
 
-        // GET: api/<cust>
+        // GET: <cust>
         [HttpGet]
         public IEnumerable<OrderDetail> Get()
         {
-
             return this.mySqlDbContext.Orderdetails.ToList();
         }
 
-
-
-
-        // GET api/<ValuesController>/5
+        // GET <ValuesController>/5
         [HttpGet("{id}")]
         public OrderDetail Get(int id)
         {
-
-
             return this.mySqlDbContext.Orderdetails.Find(id);
         }
 
-        // POST api/<ValuesController>
+        // POST <ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        public void Post([FromBody] string value) { }
 
-        // PUT api/<ValuesController>/5
+        // PUT <ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        public void Put(int id, [FromBody] string value) { }
 
-        // DELETE api/<ValuesController>/5
+        // DELETE <ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        public void Delete(int id) { }
     }
 }

@@ -11,37 +11,29 @@ namespace ShopAPI.DBContexts
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
-
         public DbSet<OrderDetail> Orderdetails { get; set; }
 
-        public MySqlDBContext(DbContextOptions<MySqlDBContext> options) : base(options)
-        {
-        }
+        public MySqlDBContext(DbContextOptions<MySqlDBContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-
+            // Customers ------------------------------------------------------
             // Map entities to tables (Customers) 
             modelBuilder.Entity<Customer>().ToTable("customers");
       
-
             // Configure Primary Keys  
             modelBuilder.Entity<Customer>().HasKey(ug => ug.CustomerNumber).HasName("customerNumber");
 
-
+            // Orders ----------------------------------------------------------
             // Map entities to tables (Orders)
             modelBuilder.Entity<Order>().ToTable("orders");
-
 
             // Configure Primary Keys  
             modelBuilder.Entity<Order>().HasKey(ug => ug.OrderNumber).HasName("orderNumber");
 
-
-
+            // Order Details --------------------------------------------------
             // Map entities to tables (OrdersDetails)
             modelBuilder.Entity<OrderDetail>().ToTable("orderdetails");
-
 
             // Configure Primary Keys  
             modelBuilder.Entity<OrderDetail>().HasKey(ug => ug.OrderNumber).HasName("orderNumber");
